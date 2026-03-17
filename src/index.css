@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  --bg:          #0a0a0f;
+  --bg-surface:  #111118;
+  --accent:      #00d9ff;
+  --accent-dim:  rgba(0, 217, 255, 0.12);
+  --text:        #e2e8f0;
+  --text-dim:    #64748b;
+  --border:      rgba(0, 217, 255, 0.12);
+  --bg-nav:      rgba(10, 10, 15, 0.82);
+  --grid-line:   rgba(0, 217, 255, 0.045);
+  --font-mono:   'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  --font-sans:   'Inter', system-ui, sans-serif;
+}
+
+[data-theme="light"] {
+  --bg:          #f0f4f8;
+  --bg-surface:  #e2e8f0;
+  --accent:      #0077aa;
+  --accent-dim:  rgba(0, 119, 170, 0.12);
+  --text:        #0f172a;
+  --text-dim:    #475569;
+  --border:      rgba(0, 119, 170, 0.18);
+  --bg-nav:      rgba(240, 244, 248, 0.88);
+  --grid-line:   rgba(0, 119, 170, 0.055);
+}
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: none;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+}
+
+a, button {
+  cursor: none;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(0, 217, 255, 0.18); border-radius: 3px; }
