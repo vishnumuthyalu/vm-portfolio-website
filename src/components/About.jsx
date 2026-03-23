@@ -1,4 +1,5 @@
 import photo from '../assets/vishnu.muthyalu.jpg'
+import '../styles/About.css'
 
 function About() {
   return (

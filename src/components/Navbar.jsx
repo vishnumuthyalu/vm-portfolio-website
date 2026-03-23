@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import ResumeModal from './ResumeModal'
+import '../styles/Navbar.css'
 
 function Navbar({ theme, toggleTheme }) {
   const [resumeOpen, setResumeOpen] = useState(false)

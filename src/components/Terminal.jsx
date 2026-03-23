@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import '../styles/Terminal.css'
 
 const SCRIPT = [
   { type: 'cmd', text: 'whoami' },

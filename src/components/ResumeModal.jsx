@@ -1,4 +1,5 @@
 import resumeUrl from '../assets/Vishnu Muthyalu - Complete Resume.pdf'
+import '../styles/ResumeModal.css'
 
 function ResumeModal({ onClose }) {
   return (

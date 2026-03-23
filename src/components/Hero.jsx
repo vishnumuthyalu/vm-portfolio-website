@@ -1,4 +1,5 @@
 import Terminal from './Terminal'
+import '../styles/Hero.css'
 
 function Hero() {
   return (
