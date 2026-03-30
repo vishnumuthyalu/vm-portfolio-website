@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react'
-import Cursor   from './components/Cursor'
-import Navbar   from './components/Navbar'
-import Hero     from './components/Hero'
-import About    from './components/About'
-import Projects from './components/Projects'
-import Contact  from './components/Contact'
-import Footer   from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import Cursor     from './components/Cursor'
+import Navbar     from './components/Navbar'
+import Hero       from './components/Hero'
+import About      from './components/About'
+import Experience from './components/Experience'
+import Projects   from './components/Projects'
+import Contact    from './components/Contact'
+import Footer     from './components/Footer'
 import './App.css'
 
 function App() {
@@ -24,10 +26,13 @@ function App() {
     <>
       <Cursor />
       <Navbar theme={theme} toggleTheme={toggleTheme} />
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
+      <Routes>
+        <Route path="/"           element={<Hero />} />
+        <Route path="/about"      element={<About />} />
+        <Route path="/experience" element={<Experience />} />
+        <Route path="/projects"   element={<Projects />} />
+        <Route path="/contact"    element={<Contact />} />
+      </Routes>
       <Footer />
     </>
   )

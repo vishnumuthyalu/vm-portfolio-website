@@ -71,7 +71,7 @@ function Projects() {
 
   return (
     <section id="projects" className="section">
-      <p className="section-label">02 · PROJECTS</p>
+      <p className="section-label">03 · PROJECTS</p>
 
       {/* ── Tab switcher ── */}
       <div className="proj-tabs">
