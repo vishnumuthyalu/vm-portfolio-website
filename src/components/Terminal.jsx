@@ -4,8 +4,9 @@ import '../styles/Terminal.css'
 const SCRIPT = [
   { type: 'cmd', text: 'whoami' },
   { type: 'out', text: 'Vishnu Muthyalu' },
-  { type: 'out', text: 'CS Student  ·  Full-Stack Developer' },
-  { type: 'out', text: 'Available for Summer 2026 internships' },
+  { type: 'out', text: 'Computer Science Student - Software Engineering and Data Science Enthusiast' },
+  { type: 'out', text: 'Incoming Masters of Computer Science Student at XYZ (Fall 2026)' },
+  { type: 'out', text: 'Open to Full time or Internship Roles in Sofware Engineering and Data Science' },
   { type: 'gap' },
   { type: 'cmd', text: 'cat skills.json' },
   { type: 'out', text: ' "frontend": ["React", "TypeScript", "Tailwind"],' },

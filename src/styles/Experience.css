@@ -1,0 +1,161 @@
+/* Timeline container */
+.exp-timeline {
+  position: relative;
+  width: min(860px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding-left: 2rem;
+}
+
+/* Vertical spine line */
+.exp-timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  bottom: 0.55rem;
+  width: 1px;
+  background: var(--border);
+}
+
+/* Single experience row */
+.exp-entry {
+  position: relative;
+  padding: 0 0 2.8rem 2.5rem;
+}
+
+.exp-entry:last-child {
+  padding-bottom: 0;
+}
+
+/* Glowing dot on the spine */
+.exp-dot {
+  position: absolute;
+  left: -0.42rem;
+  top: 0.55rem;
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--accent);
+  box-shadow: 0 0 8px var(--accent);
+  flex-shrink: 0;
+}
+
+/* Card */
+.exp-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem 1.75rem;
+  transition: border-color 0.25s;
+}
+
+.exp-card:hover {
+  border-color: rgba(0, 217, 255, 0.35);
+}
+
+/* Header row */
+.exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.exp-header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.exp-header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+}
+
+.exp-role {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.exp-company {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+.exp-period {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.exp-location {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.04em;
+}
+
+/* Bullet list */
+.exp-bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 0;
+}
+
+.exp-bullets li {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.exp-bullets li::before {
+  content: '▹';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.75rem;
+  top: 0.13em;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .exp-timeline {
+    padding-left: 1.25rem;
+  }
+
+  .exp-entry {
+    padding-left: 1.75rem;
+  }
+
+  .exp-card {
+    padding: 1.2rem 1.25rem;
+  }
+
+  .exp-header {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .exp-header-right {
+    align-items: flex-start;
+  }
+}
