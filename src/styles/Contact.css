@@ -151,6 +151,19 @@
   color: var(--bg);
 }
 
+.form-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-status {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-family: var(--font-mono);
+}
+.form-status.success { color: #4ade80; }
+.form-status.error   { color: #f87171; }
+
 /* ── Responsive ───────────────────────────────── */
 @media (max-width: 700px) {
   .contact-grid {

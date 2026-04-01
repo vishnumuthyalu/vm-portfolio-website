@@ -1,5 +1,10 @@
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import '../styles/Contact.css'
+
+const EJS_SERVICE  = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const EJS_TEMPLATE = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const EJS_KEY      = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
 const contactItems = [
   {
@@ -28,14 +33,33 @@ const contactItems = [
 
 function Contact() {
   const [form, setForm] = useState({ name: '', email: '', subject: '', message: '' })
+  const [status, setStatus] = useState('idle') // idle | sending | success | error
 
   const handleChange = e =>
     setForm(prev => ({ ...prev, [e.target.name]: e.target.value }))
 
   const handleSubmit = e => {
     e.preventDefault()
-    // SMTP integration to be wired in later
-    console.log('Form submitted:', form)
+    setStatus('sending')
+
+    emailjs.send(
+      EJS_SERVICE,
+      EJS_TEMPLATE,
+      {
+        from_name:  form.name,
+        from_email: form.email,
+        subject:    form.subject,
+        message:    form.message,
+      },
+      EJS_KEY
+    )
+      .then(() => {
+        setStatus('success')
+        setForm({ name: '', email: '', subject: '', message: '' })
+      })
+      .catch(() => {
+        setStatus('error')
+      })
   }
 
   return (
@@ -99,7 +123,16 @@ function Contact() {
             />
           </div>
 
-          <button type="submit" className="form-submit">Send Message</button>
+          <button type="submit" className="form-submit" disabled={status === 'sending'}>
+            {status === 'sending' ? 'Sending...' : 'Send Message'}
+          </button>
+
+          {status === 'success' && (
+            <p className="form-status success">Message sent! I'll get back to you soon.</p>
+          )}
+          {status === 'error' && (
+            <p className="form-status error">Something went wrong. Please try again.</p>
+          )}
         </form>
 
         {/* Right — contact info */}
