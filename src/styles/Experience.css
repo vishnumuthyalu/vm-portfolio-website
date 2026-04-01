@@ -1,46 +1,22 @@
-/* Timeline container */
-.exp-timeline {
-  position: relative;
+/* Slideshow container */
+.exp-slideshow {
   width: min(860px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 0;
-  padding-left: 2rem;
+  gap: 2rem;
 }
 
-/* Vertical spine line */
-.exp-timeline::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55rem;
-  bottom: 0.55rem;
-  width: 1px;
-  background: var(--border);
+@keyframes exp-fade-in {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* Single experience row */
-.exp-entry {
-  position: relative;
-  padding: 0 0 2.8rem 2.5rem;
-}
-
-.exp-entry:last-child {
-  padding-bottom: 0;
-}
-
-/* Glowing dot on the spine */
-.exp-dot {
-  position: absolute;
-  left: -0.42rem;
-  top: 0.55rem;
-  width: 0.85rem;
-  height: 0.85rem;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1.5px solid var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  flex-shrink: 0;
+/* Page of 3 cards */
+.exp-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  animation: exp-fade-in 0.35s ease;
 }
 
 /* Card */
@@ -158,4 +134,66 @@
   .exp-header-right {
     align-items: flex-start;
   }
+}
+
+/* Navigation row */
+.exp-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.exp-arrow {
+  background: var(--accent-dim);
+  border: 1px solid var(--border);
+  color: var(--accent);
+  font-size: 1.5rem;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.exp-arrow:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+}
+
+.exp-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exp-dot-btn {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent;
+  padding: 0;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.exp-dot-btn:hover {
+  border-color: var(--accent);
+}
+
+.exp-dot-btn-active {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.25);
+}
+
+.exp-counter {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-dim);
+  letter-spacing: 0.12em;
+  margin-left: auto;
 }
